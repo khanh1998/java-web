@@ -1,0 +1,68 @@
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="userID">
+        <field-validator type="stringlength">
+            <param name="maxLength">20</param>
+            <param name="minLength">2</param>
+            <message>Length of user id is 2-20 characters!</message>
+        </field-validator>
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>User id is required!</message>
+        </field-validator>
+    </field>
+    <field name="email">
+        <field-validator type="stringlength">
+            <param name="maxLength">50</param>
+            <param name="minLength">5</param>
+            <message>Length of email is 5-50 characters!</message>
+        </field-validator>
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Email address is required!</message>
+        </field-validator>
+        <field-validator type="email">
+            <message>Format of your email address is not valid!</message>
+        </field-validator>
+    </field>
+    <field name="firstName">
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">20</param>
+            <message>Length of first name is 2-20 characters</message>
+        </field-validator>
+    </field>
+    <field name="lastName">
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">20</param>
+            <message>Length of last name is 2-20 characters</message>
+        </field-validator>
+    </field>
+    <field name="website">
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">50</param>
+            <message>Length of website is 2-50 characters</message>
+        </field-validator>
+    </field>
+    <field name="password">
+        <field-validator type="stringlength">
+            <param name="minLength">5</param>
+            <param name="maxLength">50</param>
+            <message>Length of password is 5-50 characters</message>
+        </field-validator>
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Password is required!</message>
+        </field-validator>
+    </field>
+    <field name="repassword">
+        <field-validator type="fieldexpression">
+            <param name="expression">password==repassword</param>
+            <message>Password must match repassword!</message>
+        </field-validator>
+    </field>
+</validators>

@@ -1,0 +1,35 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="try">
+            <result>login.jsp</result>
+        </action>
+        
+        <action name="signup">
+            <result>register.jsp</result>
+        </action>
+        <action name="register" class="sample.struts2.action.RegisterAction">
+            <exception-mapping exception="java.sql.SQLException" result="input"/>
+            <result name="success" type="redirectAction">search</result>
+            <result name="input">register.jsp</result>
+        </action>
+        <action class="sample.struts2.action.LoginAction" name="login">
+            <result name="fail">invalid.html</result>
+            <result name="success" type="redirectAction">search</result>
+        </action>
+        <action class="sample.struts2.action.SearchAction" name="search">
+            <result>search.jsp</result>
+        </action>
+        <action class="sample.struts2.action.LogoutAction" name="logout">
+            <result type="redirectAction">try</result>
+        </action>
+        <action class="sample.struts2.action.ChangeRoleAction" name="changeRole">
+            <result name="success" type="redirectAction">search</result>
+            <result name="error" type="redirect">error.html</result>
+        </action>
+    </package>
+</struts>
